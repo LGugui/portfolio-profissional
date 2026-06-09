@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luiz Fernando — Portfólio</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/sections.css" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <template id="__bundler_thumbnail" data-bg-color="#02050d">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#02050d"/>
+      <rect x="500" y="300" width="200" height="200" rx="28" fill="#f7c948"/>
+      <text x="600" y="438" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="110" font-weight="700" fill="#02050d">LF</text>
+    </svg>
+  </template>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- utilities -->
+  <script src="src/image-slot.js"></script>
+  <script src="src/data.js"></script>
+
+  <!-- shared: P, Icon, SectionHead, ACCESS_LABEL, isExt -->
+  <script type="text/babel" src="src/shared/shared.jsx"></script>
+
+  <!-- visual components (loaded before sections that use them) -->
+  <script type="text/babel" src="src/sections/hero/visual/ProfilePanel.jsx"></script>
+  <script type="text/babel" src="src/sections/cases/visual/ProjectGlyph.jsx"></script>
+
+  <!-- dev panel -->
+  <script type="text/babel" src="src/panels/TweaksPanel.jsx"></script>
+
+  <!-- sections -->
+  <script type="text/babel" src="src/sections/nav/Nav.jsx"></script>
+  <script type="text/babel" src="src/sections/hero/Hero.jsx"></script>
+  <script type="text/babel" src="src/sections/cases/Cases.jsx"></script>
+  <script type="text/babel" src="src/sections/delivery/Delivery.jsx"></script>
+  <script type="text/babel" src="src/sections/skills/Skills.jsx"></script>
+  <script type="text/babel" src="src/sections/process/Process.jsx"></script>
+  <script type="text/babel" src="src/sections/about/About.jsx"></script>
+  <script type="text/babel" src="src/sections/contact/Contact.jsx"></script>
+  <script type="text/babel" src="src/sections/footer/Footer.jsx"></script>
+
+  <!-- app shell -->
+  <script type="text/babel" src="src/app.jsx"></script>
+</body>
+</html>

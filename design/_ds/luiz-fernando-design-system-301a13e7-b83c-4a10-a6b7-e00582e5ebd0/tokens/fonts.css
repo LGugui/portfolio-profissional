@@ -1,0 +1,13 @@
+/* ============================================================
+   FONTS — Construo (display) + Geist Sans (UI/body) + Geist Mono
+   --------------------------------------------------------------
+   ⚠ FONT SUBSTITUTION: "Construo" is not a web-available typeface
+   (the closest are the paid "Construct" / "TT Construct"). Until the
+   real Construo binaries are supplied, the display family falls back
+   to SPACE GROTESK — a tight geometric grotesk with the same
+   constructed/technical character. Drop Construo .woff2 into
+   /assets/fonts and add an @font-face named 'Construo' to switch.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+

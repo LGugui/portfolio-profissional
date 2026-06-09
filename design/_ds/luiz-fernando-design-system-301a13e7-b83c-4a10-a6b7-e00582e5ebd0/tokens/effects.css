@@ -1,0 +1,36 @@
+/* ============================================================
+   EFFECTS — glows, motion, hover. No heavy drop shadows.
+   Depth comes from translucent accent glows (radial-gradient)
+   and 1px borders, never from dark box-shadows.
+   ============================================================ */
+
+:root {
+  /* ---- Glows (subtle, accent-tinted) ---- */
+  --glow-accent: radial-gradient(circle, var(--accent-12) 0%, transparent 70%); /* @kind other */
+  --glow-accent-soft: radial-gradient(circle, var(--accent-08) 0%, transparent 70%); /* @kind other */
+  --glow-card: radial-gradient(circle, var(--accent-08) 0%, transparent 70%); /* @kind other */
+
+  /* Avatar ring + glow (the one allowed "shadow") */
+  --shadow-avatar: 0 0 0 3px var(--accent-25), 0 0 32px var(--accent-25);
+
+  /* ---- Motion ---- */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);  /* @kind other */ /* scroll entrance */
+  --ease-out: ease-out;                               /* @kind other */ /* hover lift */
+
+  --dur-fast: 180ms;    /* @kind other */ /* hover transitions */
+  --dur-entrance: 500ms; /* @kind other */ /* scroll fade-in */
+
+  --stagger: 70ms;       /* @kind other */ /* delay between staggered cards */
+
+  /* Hover lift distance for interactive cards */
+  --lift: -3px;
+
+  /* ---- Backdrop ---- */
+  --blur-nav: blur(12px); /* @kind other */
+}
+
+/* Scroll-entrance keyframe (mirrors the FadeIn component) */
+@keyframes ds-fade-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

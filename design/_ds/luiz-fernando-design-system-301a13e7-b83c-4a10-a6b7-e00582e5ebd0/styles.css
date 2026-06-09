@@ -1,0 +1,11 @@
+/* ============================================================
+   Luiz Fernando — Design System
+   Global entry point. Consumers link this single file.
+   Keep this file to @import lines only.
+   ============================================================ */
+
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/effects.css";

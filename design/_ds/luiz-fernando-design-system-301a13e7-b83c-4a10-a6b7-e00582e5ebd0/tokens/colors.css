@@ -1,0 +1,48 @@
+/* ============================================================
+   COLORS — minimal 4-token palette
+   The system has exactly FOUR base colors. Everything else
+   (borders, muted text, hover surface, accent tints) is DERIVED
+   from those four via opacity / color-mix — no new hues are
+   introduced. Lime, amber, red and the old secondary violet/pink
+   have been removed entirely.
+   ============================================================ */
+
+:root {
+  /* ---- The 4 ---- */
+  --bg: #0A0A12;       /* page background */
+  --surface: #13131E;  /* cards / panels */
+  --accent: #E040FB;   /* highlights, CTAs, focus — the only chroma */
+  --text: #F0F0F5;     /* foreground text */
+
+  /* ---- Derived neutrals (tints of --text / --surface, not new colors) ---- */
+  --raised: color-mix(in srgb, var(--surface) 86%, var(--text) 14%);  /* hover surface / inputs */
+  --border: color-mix(in srgb, var(--text) 12%, transparent);         /* hairline */
+  --border-strong: color-mix(in srgb, var(--text) 22%, transparent);  /* outlined controls */
+
+  /* text hierarchy — opacity steps of --text */
+  --text-1: var(--text);                                       /* primary */
+  --text-2: color-mix(in srgb, var(--text) 60%, transparent);  /* secondary / body */
+  --text-3: color-mix(in srgb, var(--text) 40%, transparent);  /* muted / meta */
+
+  /* ---- Accent tints (only from --accent) ---- */
+  --accent-08: color-mix(in srgb, var(--accent) 8%, transparent);   /* hero glow / wash */
+  --accent-12: color-mix(in srgb, var(--accent) 12%, transparent);  /* badge fill */
+  --accent-25: color-mix(in srgb, var(--accent) 25%, transparent);  /* badge border */
+  --accent-40: color-mix(in srgb, var(--accent) 40%, transparent);  /* ring / strong border */
+
+  /* ---- Gradients (accent-only) ---- */
+  --gradient-brand: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 55%, var(--bg)));
+  --gradient-text: linear-gradient(120deg, var(--text) 0%, var(--accent) 100%);
+  --hero-glow: radial-gradient(60% 60% at 50% 42%, var(--accent-08) 0%, transparent 70%);
+  --image-placeholder: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, var(--bg)) 0%, var(--bg) 70%);
+
+  /* ---- Semantic aliases ---- */
+  --surface-page: var(--bg);
+  --surface-card: var(--surface);
+  --surface-card-hover: var(--raised);
+  --surface-chip: var(--surface);
+  --border-card: var(--border);
+  --text-heading: var(--text-1);
+  --text-body: var(--text-2);
+  --text-muted: var(--text-3);
+}

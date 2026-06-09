@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfólio — Wireframe</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body { padding: 0; }
+  .wf-wrap { max-width: 1280px; margin: 0 auto; padding: 96px 24px 120px; position: relative; z-index: 1; }
+  .wf-head { margin-bottom: 48px; }
+  .wf-head .eyebrow { margin-bottom: 10px; }
+  .wf-head h1 { font-family: 'Space Grotesk'; font-size: 40px; font-weight: 700; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .wf-head p { color: var(--text-3); max-width: 64ch; margin: 0; }
+  .wf-legend { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 22px; font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--text-3); }
+  .wf-legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .wf-legend i { width: 22px; height: 12px; border-radius: 3px; display: inline-block; }
+  .i-block { background: var(--raised); border: 1px solid var(--border); }
+  .i-accent { background: rgba(247,201,72,0.18); border: 1px solid var(--gold-line); }
+  .i-text { background: repeating-linear-gradient(90deg, var(--text-3) 0 10px, transparent 10px 14px); height: 4px; }
+
+  .wf-cols { display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: start; }
+  @media (max-width: 1000px){ .wf-cols { grid-template-columns: 1fr; } }
+  .wf-frame-label { font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
+  .wf-frame-label::after { content: ""; flex: 1; height: 1px; background: var(--border-soft); }
+
+  .wf-frame { border: 1px solid var(--border); border-radius: 12px; background: var(--bg-2); overflow: hidden; }
+  .wf-section { padding: 20px; border-bottom: 1px dashed var(--border-soft); position: relative; }
+  .wf-section:last-child { border-bottom: none; }
+  .wf-tag { position: absolute; top: 10px; right: 12px; font-family: 'Geist Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); border: 1px solid var(--border-soft); border-radius: 4px; padding: 2px 7px; }
+  .wf-sec-name { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--gold); letter-spacing: 0.08em; margin-bottom: 12px; }
+  .ln { background: var(--raised); border-radius: 3px; height: 10px; margin-bottom: 8px; }
+  .ln.w90 { width: 90%; } .ln.w70 { width: 70%; } .ln.w50 { width: 50%; } .ln.w40 { width: 40%; } .ln.w30 { width: 30%; }
+  .ln.title { height: 26px; background: var(--raised-2); width: 60%; }
+  .ln.huge { height: 56px; background: var(--raised-2); width: 80%; border-left: 4px solid var(--gold); }
+  .box { background: var(--raised); border: 1px solid var(--border); border-radius: 8px; }
+  .box.accent { border-color: var(--gold-line); background: rgba(247,201,72,0.06); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .row.cols-2 > * { flex: 1; min-width: 0; }
+  .row.cols-3 > * { flex: 1; min-width: 0; }
+  .row.cols-4 > * { flex: 1; min-width: 0; }
+  .pill { height: 22px; border-radius: 999px; background: var(--raised); border: 1px solid var(--border-soft); }
+  .pill.acc { background: rgba(247,201,72,0.16); border-color: var(--gold-line); }
+  .btnbox { height: 38px; border-radius: 8px; }
+  .btnbox.primary { background: rgba(247,201,72,0.85); }
+  .btnbox.sec { background: var(--raised); border: 1px solid var(--border); }
+  .note { font-family: 'Geist Mono', monospace; font-size: 10.5px; color: var(--text-3); margin-top: 8px; line-height: 1.5; }
+  .panel-stub { height: 150px; }
+  .wf-flow { display: flex; gap: 24px; align-items: flex-start; }
+  .wf-flow .col { flex: 1; }
+  .desktop-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .desktop-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+  .desktop-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+  .hgt-90 { height: 90px; } .hgt-70 { height: 70px; } .hgt-120 { height: 120px; } .hgt-150 { height: 150px; }
+</style>
+</head>
+<body>
+<div class="atmo" aria-hidden="true"></div>
+<div class="wf-wrap">
+  <header class="wf-head">
+    <p class="eyebrow">Wireframe · estrutura antes do visual</p>
+    <h1>Fluxo &amp; hierarquia</h1>
+    <p>Ordem de leitura priorizando prova: nome e promessa → cases e demos → entregas → skills (validação) → processo → sobre → contato. A mesma hierarquia é preservada no mobile, com a primeira dobra útil mantida.</p>
+    <div class="wf-legend">
+      <span><i class="i-block"></i> bloco / superfície</span>
+      <span><i class="i-accent"></i> ênfase dourada</span>
+      <span><i class="i-text"></i> texto</span>
+    </div>
+  </header>
+
+  <div class="wf-cols">
+    <!-- DESKTOP -->
+    <div>
+      <p class="wf-frame-label">Desktop · 1140px útil</p>
+      <div class="wf-frame">
+
+        <div class="wf-section">
+          <span class="wf-tag">fixo</span>
+          <div class="wf-sec-name">Header / Nav</div>
+          <div class="row" style="align-items:center; justify-content:space-between;">
+            <div class="row" style="align-items:center; gap:10px;"><div class="box" style="width:34px;height:34px;border-radius:8px;"></div><div class="ln w30" style="width:90px;margin:0;"></div></div>
+            <div class="row" style="gap:8px;"><div class="ln w30" style="width:50px;margin:0;"></div><div class="ln w30" style="width:60px;margin:0;"></div><div class="ln w30" style="width:50px;margin:0;"></div><div class="btnbox primary" style="width:90px;"></div></div>
+          </div>
+        </div>
+
+        <div class="wf-section">
+          <span class="wf-tag">primeira dobra</span>
+          <div class="wf-sec-name">Hero — centralizado (identidade + promessa + prova)</div>
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;max-width:520px;margin:0 auto;">
+            <div class="box accent" style="width:120px;height:120px;border-radius:50%;"></div>
+            <div class="note" style="margin:0;">Foto do perfil — slot arrastável em moldura técnica (cantos + scanline). Antes era o painel “system.flow”.</div>
+            <div class="ln w30" style="width:150px;margin-top:6px;"></div>
+            <div class="ln huge" style="width:80%;border-left:none;"></div>
+            <div class="ln w70"></div>
+            <div class="ln w50"></div>
+            <div class="row" style="justify-content:center;margin-top:6px;"><div class="pill" style="width:80px;"></div><div class="pill" style="width:64px;"></div><div class="pill" style="width:96px;"></div></div>
+            <div class="row" style="justify-content:center;margin-top:8px;"><div class="btnbox primary" style="width:150px;"></div><div class="btnbox sec" style="width:90px;"></div></div>
+            <div class="row cols-3" style="width:100%;margin-top:10px;"><div class="box hgt-70"></div><div class="box hgt-70"></div><div class="box hgt-70"></div></div>
+          </div>
+        </div>
+
+        <div class="wf-section">
+          <span class="wf-tag">prova nº1</span>
+          <div class="wf-sec-name">01 · Cases e demos</div>
+          <div class="ln title" style="width:40%;"></div>
+          <div class="row" style="margin:10px 0;"><div class="pill acc" style="width:56px;"></div><div class="pill" style="width:50px;"></div><div class="pill" style="width:44px;"></div><div class="pill" style="width:44px;"></div></div>
+          <div class="box accent hgt-120" style="margin-bottom:12px;"></div>
+          <div class="note">Card destaque (split: visual + problema/resultado/tags/CTA)</div>
+          <div class="desktop-grid-2" style="margin-top:12px;"><div class="box hgt-120"></div><div class="box hgt-120"></div><div class="box hgt-120"></div><div class="box hgt-120"></div></div>
+          <div class="note">Grid de cases · emblema técnico centralizado (sem imagem) + badge de acesso (público / interno / privado) + CTA contextual</div>
+        </div>
+
+        <div class="wf-section">
+          <span class="wf-tag">valor</span>
+          <div class="wf-sec-name">02 · O que eu entrego</div>
+          <div class="ln title" style="width:35%;"></div>
+          <div class="desktop-grid-4" style="margin-top:12px;"><div class="box hgt-120"></div><div class="box hgt-120"></div><div class="box hgt-120"></div><div class="box hgt-120"></div></div>
+        </div>
+
+        <div class="wf-section">
+          <span class="wf-tag">validação</span>
+          <div class="wf-sec-name">03 · Skills e conhecimento</div>
+          <div class="ln title" style="width:42%;"></div>
+          <div class="desktop-grid-3" style="margin-top:12px;"><div class="box hgt-120"></div><div class="box hgt-120"></div><div class="box hgt-120"></div></div>
+          <div class="ln title" style="width:38%;margin-top:18px;"></div>
+          <div class="note">03.1 · Competências &amp; habilidades + complementares — inline em cápsulas, agrupadas</div>
+          <div style="display:grid;grid-template-columns:150px 1fr;gap:12px 16px;margin-top:10px;">
+            <div class="ln w90" style="width:110px;margin:0;"></div>
+            <div class="row"><div class="pill" style="width:90px;"></div><div class="pill" style="width:120px;"></div><div class="pill" style="width:80px;"></div><div class="pill" style="width:70px;"></div></div>
+            <div class="ln w90" style="width:130px;margin:0;"></div>
+            <div class="row"><div class="pill" style="width:64px;"></div><div class="pill" style="width:80px;"></div><div class="pill" style="width:96px;"></div><div class="pill" style="width:72px;"></div><div class="pill" style="width:60px;"></div></div>
+            <div class="ln w90" style="width:100px;margin:0;"></div>
+            <div class="row"><div class="pill" style="width:110px;"></div><div class="pill" style="width:70px;"></div><div class="pill" style="width:60px;"></div></div>
+            <div class="ln w90" style="width:120px;margin:0;"></div>
+            <div class="row"><div class="pill acc" style="width:80px;"></div><div class="pill acc" style="width:96px;"></div><div class="pill acc" style="width:70px;"></div><div class="pill acc" style="width:110px;"></div></div>
+          </div>
+        </div>
+
+        <div class="wf-section">
+          <span class="wf-tag">método</span>
+          <div class="wf-sec-name">04 · Como eu penso (processo)</div>
+          <div class="ln title" style="width:30%;"></div>
+          <div class="desktop-grid-3" style="margin-top:12px;"><div class="box hgt-90"></div><div class="box hgt-90"></div><div class="box hgt-90"></div></div>
+        </div>
+
+        <div class="wf-section">
+          <span class="wf-tag">pessoal</span>
+          <div class="wf-sec-name">05 · Sobre</div>
+          <div class="wf-flow"><div class="box hgt-120" style="width:34%;"></div><div class="col"><div class="ln w90"></div><div class="ln w90"></div><div class="ln w70"></div><div class="note" style="margin-top:8px;">Formação — Pós em Ciência de Dados &amp; IA · Direito · Ensino Médio</div><div class="ln w90" style="margin-top:6px;"></div><div class="ln w70"></div><div class="ln w40" style="margin-top:10px;"></div></div></div>
+        </div>
+
+        <div class="wf-section">
+          <span class="wf-tag">CTA final</span>
+          <div class="wf-sec-name">Contato</div>
+          <div class="box accent" style="padding:20px;text-align:center;"><div class="ln title" style="width:50%;margin:0 auto 10px;"></div><div class="ln w50" style="margin:0 auto 14px;"></div><div class="row" style="justify-content:center;"><div class="btnbox primary" style="width:130px;"></div><div class="btnbox sec" style="width:90px;"></div><div class="btnbox sec" style="width:90px;"></div></div></div>
+        </div>
+
+        <div class="wf-section">
+          <div class="wf-sec-name">Footer</div>
+          <div class="row" style="justify-content:space-between;"><div class="ln w30" style="width:260px;margin:0;"></div><div class="ln w30" style="width:110px;margin:0;"></div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MOBILE -->
+    <div>
+      <p class="wf-frame-label">Mobile · 360px</p>
+      <div class="wf-frame">
+        <div class="wf-section"><div class="wf-sec-name">Nav compacta</div><div class="row" style="justify-content:space-between;align-items:center;"><div class="box" style="width:30px;height:30px;border-radius:7px;"></div><div class="box" style="width:30px;height:30px;border-radius:7px;"></div></div><div class="note">Links → menu (hambúrguer). CTA sempre visível.</div></div>
+        <div class="wf-section"><span class="wf-tag">1ª dobra</span><div class="wf-sec-name">Hero · centralizado</div><div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;"><div class="box accent" style="width:96px;height:96px;border-radius:50%;"></div><div class="note" style="margin:0;">Foto (slot)</div><div class="ln w30" style="width:120px;"></div><div class="ln huge" style="height:36px;width:90%;border-left:none;"></div><div class="ln w90"></div><div class="row" style="justify-content:center;"><div class="pill" style="width:70px;"></div><div class="pill" style="width:54px;"></div></div><div class="btnbox primary" style="width:100%;margin-top:6px;"></div><div class="row cols-3" style="width:100%;margin-top:8px;"><div class="box hgt-70"></div><div class="box hgt-70"></div><div class="box hgt-70"></div></div></div></div>
+        <div class="wf-section"><div class="wf-sec-name">01 · Cases</div><div class="ln title" style="width:60%;"></div><div class="box accent hgt-120" style="margin-top:10px;"></div><div class="box hgt-120" style="margin-top:10px;"></div><div class="box hgt-120" style="margin-top:10px;"></div><div class="note">Cards empilham 1 coluna · prova mantida no topo</div></div>
+        <div class="wf-section"><div class="wf-sec-name">02 · Entregas</div><div class="box hgt-90" style="margin-top:10px;"></div><div class="box hgt-90" style="margin-top:10px;"></div></div>
+        <div class="wf-section"><div class="wf-sec-name">03 · Skills</div><div class="box hgt-90" style="margin-top:10px;"></div><div class="box hgt-90" style="margin-top:10px;"></div><div class="note" style="margin-top:10px;">03.1 · Competências + complementares (cápsulas inline, empilhadas por grupo)</div><div class="row" style="margin-top:8px;"><div class="pill" style="width:70px;"></div><div class="pill" style="width:90px;"></div><div class="pill" style="width:60px;"></div><div class="pill acc" style="width:80px;"></div></div></div>
+        <div class="wf-section"><div class="wf-sec-name">04 · Processo</div><div class="box hgt-70" style="margin-top:10px;"></div><div class="box hgt-70" style="margin-top:10px;"></div></div>
+        <div class="wf-section"><div class="wf-sec-name">05 · Sobre</div><div class="box hgt-90" style="margin-top:10px;"></div><div class="ln w90" style="margin-top:10px;"></div><div class="ln w70"></div></div>
+        <div class="wf-section"><div class="wf-sec-name">Contato</div><div class="box accent" style="padding:16px;text-align:center;margin-top:6px;"><div class="ln title" style="width:70%;margin:0 auto 10px;"></div><div class="btnbox primary" style="width:100%;"></div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

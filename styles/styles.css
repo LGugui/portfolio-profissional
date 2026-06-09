@@ -1,0 +1,378 @@
+/* ============================================================
+   Luiz Fernando — Portfolio
+   Premium technical dark. Gold primary / blue support on navy.
+   Tokens lifted from the production codebase (design-tokens.css).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Surfaces */
+  --bg: #02050d;
+  --bg-2: #07101f;
+  --surface: #0b1426;
+  --surface-2: #101c32;
+  --raised: #14213a;
+  --raised-2: #192947;
+  --border: #2f3e5d;
+  --border-soft: #20304d;
+
+  /* Accents */
+  --gold: #f7c948;
+  --gold-2: #d4af37;
+  --gold-soft: rgba(247, 201, 72, 0.12);
+  --gold-line: rgba(247, 201, 72, 0.30);
+  --blue: #38bdf8;
+  --blue-soft: rgba(56, 189, 248, 0.12);
+  --green: #22c55e;
+  --navy: #071a33;
+
+  /* Text */
+  --text-1: #f8fafc;
+  --text-2: #c8d2e4;
+  --text-3: #8290a8;
+
+  /* The "support accent" — switched to blue when tweak accent = duo */
+  --accent-2: var(--gold);
+  --accent-2-soft: var(--gold-soft);
+
+  /* Motion */
+  --motion-quick: 160ms;
+  --motion-base: 220ms;
+  --motion-entrance: 420ms;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-shift: 24px;
+  --reveal-dur: 500ms;
+
+  /* Radius */
+  --r-xs: 4px;
+  --r-sm: 7px;
+  --r-md: 8px;
+  --r-lg: 10px;
+  --r-pill: 999px;
+
+  /* Layout */
+  --page-max: 1180px;
+  --gutter: 24px;
+  --section-gap: clamp(72px, 9vw, 124px);
+
+  /* Card density (tweakable) */
+  --card-pad: 24px;
+  --grid-gap: 20px;
+
+  /* Decorative */
+  --grid-size: 56px;
+  --grid-gold: rgba(247, 201, 72, 0.035);
+  --grid-blue: rgba(56, 189, 248, 0.035);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+}
+
+/* density variants */
+[data-density="compact"] { --card-pad: 18px; --grid-gap: 14px; }
+[data-density="comfy"]   { --card-pad: 30px; --grid-gap: 28px; }
+
+/* accent duo: promote blue as the support accent on selected surfaces */
+[data-accent="duo"] { --accent-2: var(--blue); --accent-2-soft: var(--blue-soft); }
+
+/* motion off / subtle */
+[data-motion="subtle"] { --reveal-shift: 14px; --reveal-dur: 420ms; }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(247, 201, 72, 0.26); color: #fff; }
+
+/* thin scrollbar */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-2); }
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ---- Atmospheric background : fixed glows + faint technical grid ---- */
+.atmo {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(620px 620px at 82% -4%, rgba(247, 201, 72, 0.10), transparent 60%),
+    radial-gradient(560px 560px at -6% 70%, rgba(56, 189, 248, 0.07), transparent 60%);
+}
+.atmo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-gold) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-gold) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  -webkit-mask-image: radial-gradient(circle at 50% 38%, #000 0%, transparent 78%);
+          mask-image: radial-gradient(circle at 50% 38%, #000 0%, transparent 78%);
+  opacity: 0.8;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-mono { font-family: 'Geist Mono', ui-monospace, monospace; }
+
+.eyebrow {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+}
+
+.section-label {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 0 0 8px;
+}
+.section-label .num {
+  font-family: 'Geist Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+.section-label h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(26px, 3.4vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--text-1);
+}
+.section-sub {
+  color: var(--text-3);
+  font-size: 15px;
+  margin: 0 0 6px;
+  max-width: 60ch;
+}
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+.section-meta {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-xs);
+  padding: 7px 12px;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.app { position: relative; z-index: 1; }
+.shell {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+section.block { padding-block: var(--section-gap); }
+section.block:first-of-type { padding-top: 0; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav-wrap {
+  position: fixed;
+  top: 14px; left: 0; right: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: center;
+  padding-inline: var(--gutter);
+  pointer-events: none;
+}
+.nav {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 1140px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 12px 0 16px;
+  border-radius: var(--r-lg);
+  border: 1px solid transparent;
+  background: transparent;
+  transition: background var(--motion-base) var(--ease),
+              border-color var(--motion-base) var(--ease),
+              backdrop-filter var(--motion-base) var(--ease);
+}
+.nav.scrolled {
+  background: rgba(7, 16, 31, 0.82);
+  border-color: var(--border-soft);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-right: auto;
+}
+.mark {
+  width: 38px; height: 38px;
+  border-radius: var(--r-md);
+  display: grid;
+  place-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--gold), var(--gold-2));
+  box-shadow: 0 0 0 1px rgba(247, 201, 72, 0.3), 0 6px 20px rgba(247, 201, 72, 0.18);
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+.brand-text b { font-family: 'Space Grotesk'; font-weight: 600; font-size: 15px; letter-spacing: -0.01em; }
+.brand-text span {
+  font-family: 'Geist Mono', monospace;
+  font-size: 9.5px; letter-spacing: 0.18em;
+  color: var(--text-3); text-transform: uppercase;
+}
+.nav-links { display: flex; gap: 4px; align-items: center; }
+.nav-links a {
+  font-size: 14px;
+  color: var(--text-3);
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  transition: color var(--motion-quick) var(--ease), background var(--motion-quick) var(--ease);
+}
+.nav-links a:hover { color: var(--text-1); background: rgba(255,255,255,0.04); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 7px;
+  height: 38px; padding: 0 16px;
+  border-radius: var(--r-md);
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 600; font-size: 13.5px;
+  border: none;
+  transition: transform var(--motion-quick) var(--ease), box-shadow var(--motion-base) var(--ease), opacity var(--motion-quick);
+}
+.nav-cta:hover { box-shadow: 0 6px 22px rgba(247,201,72,0.34); transform: translateY(-1px); }
+.nav-burger { display: none; }
+
+/* ============================================================
+   BUTTONS / CHIPS / TAGS / BADGES
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 46px; padding: 0 20px;
+  border-radius: var(--r-md);
+  font-size: 14.5px; font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform var(--motion-quick) var(--ease), opacity var(--motion-quick), box-shadow var(--motion-base), border-color var(--motion-base), background var(--motion-base);
+}
+.btn .ext { font-size: 13px; opacity: 0.7; }
+.btn-primary { background: var(--gold); color: var(--bg); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(247,201,72,0.30); }
+.btn-secondary { background: var(--raised); color: var(--text-1); border-color: var(--border); }
+.btn-secondary:hover { border-color: var(--gold-line); background: var(--raised-2); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--text-2); border-color: var(--border-soft); }
+.btn-ghost:hover { color: var(--text-1); border-color: var(--border); }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 34px; padding: 0 14px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  color: var(--text-2);
+  font-size: 13px;
+  transition: border-color var(--motion-quick) var(--ease), color var(--motion-quick) var(--ease), background var(--motion-quick);
+}
+.chip:hover { border-color: var(--gold-line); color: var(--text-1); }
+.chip.dot::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2); }
+
+.tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11.5px;
+  color: var(--text-3);
+  padding: 4px 9px;
+  border-radius: var(--r-xs);
+  border: 1px solid var(--border-soft);
+  background: rgba(7,16,31,0.5);
+  white-space: nowrap;
+}
+.tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--r-xs);
+  border: 1px solid var(--gold-line);
+  background: var(--gold-soft);
+  color: var(--gold);
+}
+
+/* status dot + label */
+.status { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-family: 'Geist Mono', monospace; }
+.status .d { width: 7px; height: 7px; border-radius: 50%; }
+.status.ativo { color: var(--green); }
+.status.ativo .d { background: var(--green); box-shadow: 0 0 8px var(--green); animation: pulse 2.4s var(--ease) infinite; }
+.status.concluido { color: var(--blue); }
+.status.concluido .d { background: var(--blue); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+/* access tag (public / internal / private) */
+.access {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 9px; border-radius: var(--r-xs);
+  border: 1px solid var(--border-soft);
+  color: var(--text-3);
+}
+.access[data-a="publico"] { color: var(--green); border-color: rgba(34,197,94,0.3); }
+.access[data-a="interno"] { color: var(--blue); border-color: rgba(56,189,248,0.3); }
+.access[data-a="privado"] { color: var(--text-3); border-color: var(--border); background: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(130,144,168,0.06) 4px, rgba(130,144,168,0.06) 8px); }
+
+/* ============================================================
+   REVEAL (scroll entrance)
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-shift));
+  transition: opacity var(--reveal-dur) var(--ease), transform var(--reveal-dur) var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
