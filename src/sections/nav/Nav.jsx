@@ -10,6 +10,7 @@ function Nav({ onTweaksHint }) {
   }, []);
   return (
     <div className="nav-wrap">
+      <div className="dev-banner">⚙ versão em desenvolvimento</div>
       <nav className={"nav" + (scrolled ? " scrolled" : "")}>
         <a className="brand" href="#top" aria-label="Início">
           <span className="mark">{P.brand.initials}</span>

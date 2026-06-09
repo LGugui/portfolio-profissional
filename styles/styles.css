@@ -206,9 +206,23 @@ section.block:first-of-type { padding-top: 0; }
 /* ============================================================
    NAV
    ============================================================ */
+.dev-banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 70;
+  text-align: center;
+  padding: 5px 16px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(247, 201, 72, 0.7);
+  background: rgba(247, 201, 72, 0.06);
+  border-bottom: 1px solid rgba(247, 201, 72, 0.15);
+  pointer-events: none;
+}
 .nav-wrap {
   position: fixed;
-  top: 14px; left: 0; right: 0;
+  top: 28px; left: 0; right: 0;
   z-index: 60;
   display: flex;
   justify-content: center;
