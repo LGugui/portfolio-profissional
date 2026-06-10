@@ -9,8 +9,9 @@ function Nav({ onTweaksHint }) {
     return () => window.removeEventListener("scroll", on);
   }, []);
   return (
+    <React.Fragment>
+    <div className="dev-banner">⚙ versão em desenvolvimento</div>
     <div className="nav-wrap">
-      <div className="dev-banner">⚙ versão em desenvolvimento</div>
       <nav className={"nav" + (scrolled ? " scrolled" : "")}>
         <a className="brand" href="#top" aria-label="Início">
           <span className="mark">{P.brand.initials}</span>
@@ -34,6 +35,7 @@ function Nav({ onTweaksHint }) {
         </div>
       )}
     </div>
+    </React.Fragment>
   );
 }
 
